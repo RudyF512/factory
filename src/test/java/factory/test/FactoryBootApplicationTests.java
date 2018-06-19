@@ -43,13 +43,13 @@ public class FactoryBootApplicationTests {
 	@Test
 	public void contextLoads() {
 		
-		Matiere m = new Matiere(1L,"Math",5,"Objectif 1","bac +5","Thales, Pythagore");
-		matiereDao.save(m);
+//		Matiere m = new Matiere(1L,"Math",5,"Objectif 1","bac +5","Thales, Pythagore");
+//		matiereDao.save(m);
 		
-//		Adresse a = new Adresse("2 rue des prairies", "75002", "Paris");
+		Adresse a = new Adresse("2 rue des prairies", "75002", "Paris");
 //		
-//		Technicien t = new Technicien(1L,"Hoyaux","Vivien","0145789625","test@gmail.com",a);
-//		rHumaineDao.save(t);
+		Technicien t = new Technicien(1L,"Hoyaux","Vivien","0145789625","test@gmail.com",a);
+		rHumaineDao.save(t);
 		
 //		Adresse a1 = new Adresse("5 rue des roses", "75012", "Paris");
 //		

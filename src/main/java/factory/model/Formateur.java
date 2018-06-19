@@ -24,8 +24,8 @@ public class Formateur extends RHumaine {
 	private static final long serialVersionUID = 1L;
 
 
-  @NotNull
-  @Column(name = "expertise", nullable = false)
+//  @NotNull
+  @Column(name = "expertise")
   private Integer expertise;
 
   @Enumerated(EnumType.STRING)
@@ -50,7 +50,7 @@ public class Formateur extends RHumaine {
 		super();
 	}
 
-	public Formateur(@NotNull Integer expertise, LvlStagiaire lvlStagiaire, Set<Formation> formations,
+	public Formateur(Integer expertise, LvlStagiaire lvlStagiaire, Set<Formation> formations,
 			Set<Matiere> matieres) {
 		super();
 		this.expertise = expertise;
@@ -59,8 +59,8 @@ public class Formateur extends RHumaine {
 		this.matieres = matieres;
 	}
 
-	public Formateur(Long id, @NotNull String nom, @NotNull String prenom, @NotNull String tel, @NotNull String email,
-			Adresse adresse,@NotNull Integer expertise, LvlStagiaire lvlStagiaire, Set<Formation> formations,
+	public Formateur(Long id,  String nom,  String prenom,  String tel,  String email,
+			Adresse adresse, Integer expertise, LvlStagiaire lvlStagiaire, Set<Formation> formations,
 			Set<Matiere> matieres) {
 		super(id, nom, prenom, tel, email, adresse);
 		
