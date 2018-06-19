@@ -4,11 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-
 @Entity
 @DiscriminatorValue("Ordinateur")
 public class Ordinateur extends RMaterielle {
-	
+
 	public Ordinateur() {
 		super();
 	}
@@ -26,24 +25,21 @@ public class Ordinateur extends RMaterielle {
 		this.qdd = qdd;
 		this.anneeAchat = anneeAchat;
 	}
-	
-	
 
 	@Column(name = "brand")
-    private String brand;
+	private String brand;
 
-    @Column(name = "jhi_proc")
-    private String proc;
+	@Column(name = "jhi_proc")
+	private String proc;
 
-    @Column(name = "ram")
-    private Integer ram;
+	@Column(name = "ram")
+	private Integer ram;
 
-    @Column(name = "qdd")
-    private Integer qdd;
+	@Column(name = "qdd")
+	private Integer qdd;
 
-    @Column(name = "annee_achat")
-    private String anneeAchat;
-
+	@Column(name = "annee_achat")
+	private String anneeAchat;
 
 	public String getBrand() {
 		return brand;
@@ -84,6 +80,5 @@ public class Ordinateur extends RMaterielle {
 	public void setAnneeAchat(String anneeAchat) {
 		this.anneeAchat = anneeAchat;
 	}
-	
 
 }

@@ -39,7 +39,6 @@ public class FactoryBootApplicationTests {
 	@Autowired
 	private FormationRepository formationDao;
 	
-
 	@Test
 	public void contextLoads() {
 		

@@ -12,7 +12,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "rmateriel")
+@Table(name = "rmaterielle")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 20)
 public class RMaterielle {
@@ -24,7 +24,7 @@ public class RMaterielle {
 		this.cout = cout;
 		this.dispo = dispo;
 	}
-	
+
 	public RMaterielle() {
 		super();
 	}
@@ -91,30 +91,31 @@ public class RMaterielle {
 	// jhipster-needle-entity-add-getters-setters - JHipster will add getters and
 	// setters here, do not remove
 
-//	@Override
-//	public boolean equals(Object o) {
-//		if (this == o) {
-//			return true;
-//		}
-//		if (o == null || getClass() != o.getClass()) {
-//			return false;
-//		}
-//		RMaterielle rMaterielle = (RMaterielle) o;
-//		if (rMaterielle.getId() == null || getId() == null) {
-//			return false;
-//		}
-//		return Objects.equals(getId(), rMaterielle.getId());
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		return Objects.hashCode(getId());
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "RMaterielle{" + "id=" + getId() + ", code='" + getCode() + "'" + ", cout=" + getCout() + ", dispo='"
-//				+ isDispo() + "'" + "}";
-//	}
+	// @Override
+	// public boolean equals(Object o) {
+	// if (this == o) {
+	// return true;
+	// }
+	// if (o == null || getClass() != o.getClass()) {
+	// return false;
+	// }
+	// RMaterielle rMaterielle = (RMaterielle) o;
+	// if (rMaterielle.getId() == null || getId() == null) {
+	// return false;
+	// }
+	// return Objects.equals(getId(), rMaterielle.getId());
+	// }
+	//
+	// @Override
+	// public int hashCode() {
+	// return Objects.hashCode(getId());
+	// }
+	//
+	// @Override
+	// public String toString() {
+	// return "RMaterielle{" + "id=" + getId() + ", code='" + getCode() + "'" + ",
+	// cout=" + getCout() + ", dispo='"
+	// + isDispo() + "'" + "}";
+	// }
 
 }

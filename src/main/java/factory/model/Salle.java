@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 @DiscriminatorValue("Salle")
 public class Salle extends RMaterielle {
 
-
 	public Salle(Long id, String code, Long cout, Boolean dispo, String nomSalle, Integer capacite) {
 		super(id, code, cout, dispo);
 		this.nomSalle = nomSalle;
@@ -17,19 +16,13 @@ public class Salle extends RMaterielle {
 
 	public Salle() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-	
 
 	@Column(name = "nom_salle")
 	private String nomSalle;
 
 	@Column(name = "capacite")
 	private Integer capacite;
-	
-	
-
 
 	public String getNomSalle() {
 		return nomSalle;
