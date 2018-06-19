@@ -1,0 +1,154 @@
+package factory.model;
+
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+public class Module {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@NotNull
+	@Column(name = "date_debut", nullable = false)
+	private String dateDebut;
+
+	@NotNull
+	@Column(name = "date_fin", nullable = false)
+	private String dateFin;
+
+	@OneToOne
+	@JoinColumn(unique = true)
+	private Salle salle;
+
+	@OneToOne
+	@JoinColumn(unique = true)
+	private Matiere matiere;
+
+	@OneToOne
+	@JoinColumn(unique = true)
+	private Formateur formateur;
+
+	@ManyToMany(mappedBy = "modules")
+	@JsonIgnore
+	private Set<Formation> formations = new HashSet<>();
+
+	public Module() {
+		super();
+	}
+
+	public Module(Long id, @NotNull String dateDebut, @NotNull String dateFin, Salle salle, Matiere matiere,
+			Formateur formateur, Set<Formation> formations) {
+		super();
+		this.id = id;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.salle = salle;
+		this.matiere = matiere;
+		this.formateur = formateur;
+		this.formations = formations;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getDateDebut() {
+		return dateDebut;
+	}
+
+	public void setDateDebut(String dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+
+	public String getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(String dateFin) {
+		this.dateFin = dateFin;
+	}
+
+	public Salle getSalle() {
+		return salle;
+	}
+
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+
+	public Matiere getMatiere() {
+		return matiere;
+	}
+
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
+	}
+
+	public Formateur getFormateur() {
+		return formateur;
+	}
+
+	public void setFormateur(Formateur formateur) {
+		this.formateur = formateur;
+	}
+
+	public Set<Formation> getFormations() {
+		return formations;
+	}
+
+	public void setFormations(Set<Formation> formations) {
+		this.formations = formations;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Module module = (Module) o;
+		if (module.getId() == null || getId() == null) {
+			return false;
+		}
+		return Objects.equals(getId(), module.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(getId());
+	}
+
+	@Override
+	public String toString() {
+		return "Module{" + "id=" + getId() + ", dateDebut='" + getDateDebut() + "'" + ", dateFin='" + getDateFin() + "'"
+				+ "}";
+	}
+
+}
