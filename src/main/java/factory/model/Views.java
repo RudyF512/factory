@@ -33,6 +33,10 @@ public class Views {
 
 	}
 	
+	public static class ViewRMaterielle extends ViewCommon {
+
+	}
+	
 	public static class ViewSalle extends ViewCommon {
 
 	}
