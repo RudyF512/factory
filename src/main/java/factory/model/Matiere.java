@@ -35,6 +35,15 @@ public class Matiere {
 		this.prerequis = prerequis;
 		this.contenue = contenue;
 	}
+	
+	public Matiere(String nom, Integer duree, String objectif, String prerequis, String contenue) {
+		super();
+		this.nom = nom;
+		this.duree = duree;
+		this.objectif = objectif;
+		this.prerequis = prerequis;
+		this.contenue = contenue;
+	}
 
 	public Long getId() {
 		return id;

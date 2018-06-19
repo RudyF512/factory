@@ -1,5 +1,6 @@
 package factory.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,11 +31,11 @@ public class Formation {
 
     @NotNull
     @Column(name = "date_debut", nullable = false)
-    private String dateDebut;
+    private Date dateDebut;
 
     @NotNull
     @Column(name = "date_fin", nullable = false)
-    private String dateFin;
+    private Date dateFin;
 
     @OneToMany(mappedBy = "formation")
     private Set<Stagiaire> stagiaires = new HashSet<>();
@@ -52,7 +53,7 @@ public class Formation {
 		super();
 	}
 
-	public Formation(Long id, @NotNull String nom, @NotNull String dateDebut, @NotNull String dateFin,
+	public Formation(Long id, @NotNull String nom, @NotNull Date dateDebut, @NotNull Date dateFin,
 			Set<Stagiaire> stagiaires, Set<Module> modules, Formateur formateur) {
 		super();
 		this.id = id;
@@ -80,19 +81,19 @@ public class Formation {
 		this.nom = nom;
 	}
 
-	public String getDateDebut() {
+	public Date getDateDebut() {
 		return dateDebut;
 	}
 
-	public void setDateDebut(String dateDebut) {
+	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
-	public String getDateFin() {
+	public Date getDateFin() {
 		return dateFin;
 	}
 
-	public void setDateFin(String dateFin) {
+	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
 

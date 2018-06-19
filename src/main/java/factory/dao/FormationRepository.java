@@ -9,10 +9,10 @@ import org.springframework.data.repository.query.Param;
 import factory.model.Formation;
 
 public interface FormationRepository extends JpaRepository<Formation, Long> {
-//    @Query("select distinct formation from Formation formation left join fetch formation.modules")
-//    List<Formation> findAllWithEagerRelationships();
-//
-//    @Query("select formation from Formation formation left join fetch formation.modules where formation.id =:id")
-//    Formation findOneWithEagerRelationships(@Param("id") Long id);
+    @Query("select distinct formation from Formation formation left join fetch formation.modules")
+    List<Formation> findAllWithEagerRelationships();
+
+    @Query("select formation from Formation formation left join fetch formation.modules where formation.id =:id")
+    Formation findOneWithEagerRelationships(@Param("id") Long id);
 
 }

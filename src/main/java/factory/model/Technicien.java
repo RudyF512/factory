@@ -2,7 +2,6 @@ package factory.model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @DiscriminatorValue("Technicien")
@@ -13,9 +12,15 @@ public class Technicien extends RHumaine {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Technicien(Long id, @NotNull String nom, @NotNull String prenom, @NotNull String tel, @NotNull String email,
+	public Technicien(Long id, String nom,  String prenom,  String tel,  String email,
 			Adresse adresse) {
 		super(id, nom, prenom, tel, email, adresse);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Technicien( String nom,  String prenom,  String tel,  String email,
+			Adresse adresse) {
+		super(nom, prenom, tel, email, adresse);
 		// TODO Auto-generated constructor stub
 	}
 	

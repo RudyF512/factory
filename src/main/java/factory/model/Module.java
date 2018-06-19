@@ -1,5 +1,6 @@
 package factory.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -27,11 +28,11 @@ public class Module {
 
 	@NotNull
 	@Column(name = "date_debut", nullable = false)
-	private String dateDebut;
+	private Date dateDebut;
 
 	@NotNull
 	@Column(name = "date_fin", nullable = false)
-	private String dateFin;
+	private Date dateFin;
 
 	@OneToOne
 	@JoinColumn(unique = true)
@@ -53,7 +54,7 @@ public class Module {
 		super();
 	}
 
-	public Module(Long id, @NotNull String dateDebut, @NotNull String dateFin, Salle salle, Matiere matiere,
+	public Module(Long id, @NotNull Date dateDebut, @NotNull Date dateFin, Salle salle, Matiere matiere,
 			Formateur formateur, Set<Formation> formations) {
 		super();
 		this.id = id;
@@ -71,22 +72,6 @@ public class Module {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getDateDebut() {
-		return dateDebut;
-	}
-
-	public void setDateDebut(String dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-
-	public String getDateFin() {
-		return dateFin;
-	}
-
-	public void setDateFin(String dateFin) {
-		this.dateFin = dateFin;
 	}
 
 	public Salle getSalle() {
@@ -145,10 +130,22 @@ public class Module {
 		return Objects.hashCode(getId());
 	}
 
-	@Override
-	public String toString() {
-		return "Module{" + "id=" + getId() + ", dateDebut='" + getDateDebut() + "'" + ", dateFin='" + getDateFin() + "'"
-				+ "}";
+	public Date getDateDebut() {
+		return dateDebut;
 	}
+
+	public void setDateDebut(Date dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+
+	public Date getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
+	}
+	
+	
 
 }

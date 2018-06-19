@@ -32,19 +32,15 @@ public class RHumaine {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull
 	@Column(name = "nom", nullable = false)
 	private String nom;
 
-	@NotNull
 	@Column(name = "prenom", nullable = false)
 	private String prenom;
 
-	@NotNull
 	@Column(name = "tel", nullable = false)
 	private String tel;
 
-	@NotNull
 	@Column(name = "email", nullable = false)
 	private String email;
 
@@ -69,9 +65,17 @@ public class RHumaine {
 		this.email = email;
 		this.adresse = adresse;
 	}
+	
+	public RHumaine(String nom, String prenom, String tel, String email,
+			Adresse adresse) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.tel = tel;
+		this.email = email;
+		this.adresse = adresse;
+	}
 
-	// jhipster-needle-entity-add-getters-setters - JHipster will add getters and
-	// setters here, do not remove
 
 	public Long getId() {
 		return id;
