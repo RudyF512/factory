@@ -1,12 +1,11 @@
 package factory.model;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
 
 @Entity
+@DiscriminatorValue("VideoProj")
 public class VideoProj extends RMaterielle {
 
 		
@@ -19,10 +18,10 @@ public class VideoProj extends RMaterielle {
 		this.vga = vga;
 	}
 
-		@Column(name = "brand", nullable = false)
+		@Column(name = "brand")
 	    private String brand;
 
-	    @Column(name = "resolution", nullable = false)
+	    @Column(name = "resolution")
 	    private Integer resolution;
 
 	    @Column(name = "hdmi")

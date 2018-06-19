@@ -1,10 +1,12 @@
 package factory.model;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 
 @Entity
+@DiscriminatorValue("Ordinateur")
 public class Ordinateur extends RMaterielle {
 	
 	public Ordinateur() {
