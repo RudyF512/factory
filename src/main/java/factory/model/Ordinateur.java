@@ -2,45 +2,46 @@ package factory.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
 
 
 @Entity
 public class Ordinateur extends RMaterielle {
 	
-	@NotNull
-    @Column(name = "brand", nullable = false)
-    private String brand;
-
-    @NotNull
-    @Column(name = "jhi_proc", nullable = false)
-    private String proc;
-
-    @NotNull
-    @Column(name = "ram", nullable = false)
-    private Integer ram;
-
-    @NotNull
-    @Column(name = "qdd", nullable = false)
-    private Integer qdd;
-
-    @NotNull
-    @Column(name = "annee_achat", nullable = false)
-    private String anneeAchat;
-
-	public Ordinateur(@NotNull String brand, @NotNull String proc, @NotNull Integer ram, @NotNull Integer qdd,
-			@NotNull String anneeAchat) {
+	public Ordinateur() {
 		super();
+	}
+
+	public Ordinateur(Long id, String code, Long cout, Boolean dispo) {
+		super(id, code, cout, dispo);
+	}
+
+	public Ordinateur(Long id, String code, Long cout, Boolean dispo, String brand, String proc, Integer ram,
+			Integer qdd, String anneeAchat) {
+		super(id, code, cout, dispo);
 		this.brand = brand;
 		this.proc = proc;
 		this.ram = ram;
 		this.qdd = qdd;
 		this.anneeAchat = anneeAchat;
 	}
+	
+	
 
-	public Ordinateur() {
-		super();
-	}
+	@Column(name = "brand")
+    private String brand;
+
+    @Column(name = "jhi_proc")
+    private String proc;
+
+    @Column(name = "ram")
+    private Integer ram;
+
+    @Column(name = "qdd")
+    private Integer qdd;
+
+    @Column(name = "annee_achat")
+    private String anneeAchat;
+
 
 	public String getBrand() {
 		return brand;
@@ -82,8 +83,5 @@ public class Ordinateur extends RMaterielle {
 		this.anneeAchat = anneeAchat;
 	}
 	
-	
-    
-    
 
 }

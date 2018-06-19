@@ -10,11 +10,18 @@ import javax.validation.constraints.NotNull;
 public class VideoProj extends RMaterielle {
 
 		
-	    @NotNull
-	    @Column(name = "brand", nullable = false)
+	    public VideoProj(Long id, String code, Long cout, Boolean dispo, String brand, Integer resolution, Boolean hdmi,
+			Boolean vga) {
+		super(id, code, cout, dispo);
+		this.brand = brand;
+		this.resolution = resolution;
+		this.hdmi = hdmi;
+		this.vga = vga;
+	}
+
+		@Column(name = "brand", nullable = false)
 	    private String brand;
 
-	    @NotNull
 	    @Column(name = "resolution", nullable = false)
 	    private Integer resolution;
 
@@ -65,35 +72,35 @@ public class VideoProj extends RMaterielle {
 			this.vga = vga;
 		}
 
-		@Override
-	    public boolean equals(Object o) {
-	        if (this == o) {
-	            return true;
-	        }
-	        if (o == null || getClass() != o.getClass()) {
-	            return false;
-	        }
-	        VideoProj videoProj = (VideoProj) o;
-	        if (videoProj.getId() == null || getId() == null) {
-	            return false;
-	        }
-	        return Objects.equals(getId(), videoProj.getId());
-	    }
-
-	    @Override
-	    public int hashCode() {
-	        return Objects.hashCode(getId());
-	    }
-
-	    @Override
-	    public String toString() {
-	        return "VideoProj{" +
-	            "id=" + getId() +
-	            ", brand='" + getBrand() + "'" +
-	            ", resolution=" + getResolution() +
-	            ", hdmi='" + getHdmi() + "'" +
-	            ", vga='" + getVga() + "'" +
-	            "}";
-	    }
+//		@Override
+//	    public boolean equals(Object o) {
+//	        if (this == o) {
+//	            return true;
+//	        }
+//	        if (o == null || getClass() != o.getClass()) {
+//	            return false;
+//	        }
+//	        VideoProj videoProj = (VideoProj) o;
+//	        if (videoProj.getId() == null || getId() == null) {
+//	            return false;
+//	        }
+//	        return Objects.equals(getId(), videoProj.getId());
+//	    }
+//
+//	    @Override
+//	    public int hashCode() {
+//	        return Objects.hashCode(getId());
+//	    }
+//
+//	    @Override
+//	    public String toString() {
+//	        return "VideoProj{" +
+//	            "id=" + getId() +
+//	            ", brand='" + getBrand() + "'" +
+//	            ", resolution=" + getResolution() +
+//	            ", hdmi='" + getHdmi() + "'" +
+//	            ", vga='" + getVga() + "'" +
+//	            "}";
+//	    }
 	
 }

@@ -66,15 +66,15 @@ public class RHumaine {
 		this.adresse = adresse;
 	}
 	
-	public RHumaine(String nom, String prenom, String tel, String email,
-			Adresse adresse) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.tel = tel;
-		this.email = email;
-		this.adresse = adresse;
-	}
+//	public RHumaine(String nom, String prenom, String tel, String email,
+//			Adresse adresse) {
+//		super();
+//		this.nom = nom;
+//		this.prenom = prenom;
+//		this.tel = tel;
+//		this.email = email;
+//		this.adresse = adresse;
+//	}
 
 
 	public Long getId() {

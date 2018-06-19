@@ -18,11 +18,11 @@ public class Technicien extends RHumaine {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Technicien( String nom,  String prenom,  String tel,  String email,
-			Adresse adresse) {
-		super(nom, prenom, tel, email, adresse);
-		// TODO Auto-generated constructor stub
-	}
+//	public Technicien( String nom,  String prenom,  String tel,  String email,
+//			Adresse adresse) {
+//		super(nom, prenom, tel, email, adresse);
+//		// TODO Auto-generated constructor stub
+//	}
 	
 	
 
