@@ -25,15 +25,12 @@ public class Formation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
     @Column(name = "nom", nullable = false)
     private String nom;
 
-    @NotNull
     @Column(name = "date_debut", nullable = false)
     private Date dateDebut;
 
-    @NotNull
     @Column(name = "date_fin", nullable = false)
     private Date dateFin;
 

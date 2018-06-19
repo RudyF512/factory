@@ -9,18 +9,16 @@ public class Matiere {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	private String nom;
-	
+
 	private Integer duree;
-	
+
 	private String objectif;
-	
+
 	private String prerequis;
-	
+
 	private String contenue;
-	
-	
 
 	public Matiere() {
 		super();
@@ -35,7 +33,7 @@ public class Matiere {
 		this.prerequis = prerequis;
 		this.contenue = contenue;
 	}
-	
+
 	public Matiere(String nom, Integer duree, String objectif, String prerequis, String contenue) {
 		super();
 		this.nom = nom;
@@ -92,9 +90,5 @@ public class Matiere {
 	public void setContenue(String contenue) {
 		this.contenue = contenue;
 	}
-	
-	
-	
-	
 
 }
