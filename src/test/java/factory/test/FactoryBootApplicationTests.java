@@ -23,8 +23,6 @@ import factory.model.LvlStagiaire;
 import factory.model.Matiere;
 import factory.model.Module;
 import factory.model.Ordinateur;
-import factory.model.Stagiaire;
-import factory.model.Technicien;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -48,8 +46,8 @@ public class FactoryBootApplicationTests {
 	@Test
 	public void contextLoads() {
 		
-		Ordinateur ordi = new Ordinateur(1L,"152",155L,true,"HP","i5",8,200,"2008");
-		rMaterielleDao.save(ordi);
+//		Ordinateur ordi = new Ordinateur(1L,"152",155L,true,"HP","i5",8,200,"2008");
+//		rMaterielleDao.save(ordi);
 		
 		Matiere matiere = new Matiere(2L,"Math2",5,"Objectif 1","bac +5","Thales2, Pythagore2");
 		matiereDao.save(matiere);
