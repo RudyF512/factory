@@ -16,6 +16,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Module {
@@ -24,30 +25,36 @@ public class Module {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewRHumaine.class)
 	private Long id;
 
 	@NotNull
 	@Column(name = "date_debut", nullable = false)
+	@JsonView(Views.ViewRHumaine.class)
 	private Date dateDebut;
 
 	@NotNull
 	@Column(name = "date_fin", nullable = false)
+	@JsonView(Views.ViewRHumaine.class)
 	private Date dateFin;
 
 	@OneToOne
 	@JoinColumn(unique = true)
+	@JsonView(Views.ViewRHumaine.class)
 	private Salle salle;
 
 	@OneToOne
 	@JoinColumn(unique = true)
+	@JsonView(Views.ViewRHumaine.class)
 	private Matiere matiere;
 
 	@OneToOne
 	@JoinColumn(unique = true)
+	@JsonView(Views.ViewRHumaine.class)
 	private Formateur formateur;
 
 	@ManyToMany(mappedBy = "modules")
-	@JsonIgnore
+	@JsonView(Views.ViewRHumaine.class)
 	private Set<Formation> formations = new HashSet<>();
 
 	public Module() {

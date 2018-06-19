@@ -7,17 +7,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @DiscriminatorValue("Stagiaire")
 public class Stagiaire extends RHumaine {
-	
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Ordinateur ordinateur;
 
-    @ManyToOne
-    private Formation formation;
+	@OneToOne
+	@JoinColumn(unique = true)
+	@JsonView(Views.ViewRHumaine.class)
+	private Ordinateur ordinateur;
+
+	@ManyToOne
+	@JsonIgnore
+	private Formation formation;
 
 	public Stagiaire() {
 		super();
@@ -58,6 +62,5 @@ public class Stagiaire extends RHumaine {
 	public void setFormation(Formation formation) {
 		this.formation = formation;
 	}
-    
 
 }

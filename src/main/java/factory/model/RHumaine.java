@@ -30,18 +30,23 @@ public class RHumaine {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewRHumaine.class)
 	private Long id;
 
 	@Column(name = "nom", nullable = false)
+	@JsonView(Views.ViewRHumaine.class)
 	private String nom;
 
 	@Column(name = "prenom", nullable = false)
+	@JsonView(Views.ViewRHumaine.class)
 	private String prenom;
 
 	@Column(name = "tel", nullable = false)
+	@JsonView(Views.ViewRHumaine.class)
 	private String tel;
 
 	@Column(name = "email", nullable = false)
+	@JsonView(Views.ViewRHumaine.class)
 	private String email;
 
 	@Embedded

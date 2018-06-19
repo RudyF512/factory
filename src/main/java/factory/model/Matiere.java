@@ -4,20 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Matiere {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewRHumaine.class)
 	private Long id;
-
+	@JsonView(Views.ViewRHumaine.class)
 	private String nom;
-
+	@JsonView(Views.ViewRHumaine.class)
 	private Integer duree;
-
+	@JsonView(Views.ViewRHumaine.class)
 	private String objectif;
-
+	@JsonView(Views.ViewRHumaine.class)
 	private String prerequis;
-
+	@JsonView(Views.ViewRHumaine.class)
 	private String contenue;
 
 	public Matiere() {

@@ -16,30 +16,39 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Formation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewRHumaine.class)
 	private Long id;
 
 	@Column(name = "nom", nullable = false)
+	@JsonView(Views.ViewRHumaine.class)
 	private String nom;
 
 	@Column(name = "date_debut", nullable = false)
+	@JsonView(Views.ViewRHumaine.class)
 	private Date dateDebut;
 
 	@Column(name = "date_fin", nullable = false)
+	@JsonView(Views.ViewRHumaine.class)
 	private Date dateFin;
 
 	@OneToMany(mappedBy = "formation")
+	@JsonView(Views.ViewRHumaine.class)
 	private Set<Stagiaire> stagiaires = new HashSet<>();
 
 	@ManyToMany
 	@JoinTable(name = "formation_modules", joinColumns = @JoinColumn(name = "formations_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "modules_id", referencedColumnName = "id"))
+	@JsonView(Views.ViewRHumaine.class)
 	private Set<Module> modules = new HashSet<>();
 
 	@ManyToOne
+	@JsonView(Views.ViewRHumaine.class)
 	private Formateur formateur;
 
 	public Formation() {
