@@ -53,48 +53,49 @@ public class FactoryBootApplicationTests {
 		Set<Module> modules = new HashSet<Module>();
 		Set<Formation> formations = new HashSet<Formation>();
 
-		Ordinateur ordi = new Ordinateur(1L, "152", 155L, true, "HP", "i5", 8, 200, "2008");
+		Ordinateur ordi = new Ordinateur("152", 155L, true, "HP", "i5", 8, 200, "2008");
+		rMaterielleDao.save(ordi);
 
-		Matiere matiere = new Matiere(2L, "Math2", 5, "Objectif 1", "bac +5", "Thales2, Pythagore2");
+		Matiere matiere = new Matiere("Math2", 5, "Objectif 1", "bac +5", "Thales2, Pythagore2");
+		matiereDao.save(matiere);
+		matieres.add(matiere);
 
 		Adresse adresse = new Adresse("2 rue des prairies", "75002", "Paris");
+		Adresse adresse1 = new Adresse("5 rue des roses", "75012", "Paris");
 		Adresse adresse2 = new Adresse("55 rue des boulets", "75012", "Paris");
 		Adresse adresse3 = new Adresse("85 rue gonet", "75020", "Paris");
 
-		Technicien technicien = new Technicien(1L, "Hoyaux", "Vivien", "0145789625", "test@gmail.com", adresse);
+		Technicien technicien = new Technicien("Hoyaux", "Vivien", "0145789625", "test@gmail.com", adresse);
+		rHumaineDao.save(technicien);
 
-		Adresse adresse1 = new Adresse("5 rue des roses", "75012", "Paris");
+		Gestionnaire gestionnaire = new Gestionnaire("KUMAR", "Vikas", "01843505656", "Test1@gmail.com", adresse1);
+		rHumaineDao.save(gestionnaire);
 
-		Gestionnaire gestionnaire = new Gestionnaire(2L, "KUMAR", "Vikas", "01843505656", "Test1@gmail.com", adresse1);
+		Stagiaire stagiaire = new Stagiaire("Jean", "Patrick", "0245978510", "vikvik@gmail.Com", adresse2, ordi, null);
+		rHumaineDao.save(stagiaire);
+		stagiaires.add(stagiaire);
 
-		Stagiaire stagiaire = new Stagiaire(3L, "Jean", "Patrick", "0245978510", "vikvik@gmail.Com", adresse2, ordi,
-				null);
-
-		Formateur formateur = new Formateur(4L, "Gozlan", "Olivier", "0514594155", "Olivier@gmail.Com", adresse3, 5,
+		Formateur formateur = new Formateur("Gozlan", "Olivier", "0514594155", "Olivier@gmail.Com", adresse3, 5,
 				LvlStagiaire.Avance, null, matieres);
+		rHumaineDao.save(formateur);
 
 		Date date = new Date();
 
-		Module module = new Module(1L, date, date, null, matiere, formateur, null);
-
-		Formation formation = new Formation(1L, "Energie", date, date, stagiaires, modules, formateur);
-
+		Module module = new Module(date, date, null, matiere, formateur, null);
+		moduleDao.save(module);
 		modules.add(module);
-		stagiaires.add(stagiaire);
-		matieres.add(matiere);
+
+		Formation formation = new Formation("Energie", date, date, stagiaires, modules, formateur);
+
+		formationDao.save(formation);
 
 		stagiaire.setFormation(formation);
 		formateur.setFormations(formations);
 		module.setFormateur(formateur);
 		module.setFormations(formations);
 
-		rMaterielleDao.save(ordi);
 		rHumaineDao.save(stagiaire);
-		rHumaineDao.save(technicien);
-		rHumaineDao.save(gestionnaire);
 		rHumaineDao.save(formateur);
-		matiereDao.save(matiere);
-		formationDao.save(formation);
 		moduleDao.save(module);
 	}
 

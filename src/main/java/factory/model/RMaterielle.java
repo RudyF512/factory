@@ -29,6 +29,13 @@ public class RMaterielle {
 		super();
 	}
 
+	public RMaterielle(String code, Long cout, Boolean dispo) {
+		super();
+		this.code = code;
+		this.cout = cout;
+		this.dispo = dispo;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

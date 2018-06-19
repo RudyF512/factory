@@ -66,6 +66,17 @@ public class Module {
 		this.formations = formations;
 	}
 
+	public Module(@NotNull Date dateDebut, @NotNull Date dateFin, Salle salle, Matiere matiere, Formateur formateur,
+			Set<Formation> formations) {
+		super();
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.salle = salle;
+		this.matiere = matiere;
+		this.formateur = formateur;
+		this.formations = formations;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -145,7 +156,5 @@ public class Module {
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-	
-	
 
 }

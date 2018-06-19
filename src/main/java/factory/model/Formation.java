@@ -16,35 +16,31 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
-
-
 @Entity
 public class Formation {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(name = "nom", nullable = false)
-    private String nom;
+	@Column(name = "nom", nullable = false)
+	private String nom;
 
-    @Column(name = "date_debut", nullable = false)
-    private Date dateDebut;
+	@Column(name = "date_debut", nullable = false)
+	private Date dateDebut;
 
-    @Column(name = "date_fin", nullable = false)
-    private Date dateFin;
+	@Column(name = "date_fin", nullable = false)
+	private Date dateFin;
 
-    @OneToMany(mappedBy = "formation")
-    private Set<Stagiaire> stagiaires = new HashSet<>();
+	@OneToMany(mappedBy = "formation")
+	private Set<Stagiaire> stagiaires = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(name = "formation_modules",
-               joinColumns = @JoinColumn(name="formations_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="modules_id", referencedColumnName="id"))
-    private Set<Module> modules = new HashSet<>();
+	@ManyToMany
+	@JoinTable(name = "formation_modules", joinColumns = @JoinColumn(name = "formations_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "modules_id", referencedColumnName = "id"))
+	private Set<Module> modules = new HashSet<>();
 
-    @ManyToOne
-    private Formateur formateur;
+	@ManyToOne
+	private Formateur formateur;
 
 	public Formation() {
 		super();
@@ -54,6 +50,17 @@ public class Formation {
 			Set<Stagiaire> stagiaires, Set<Module> modules, Formateur formateur) {
 		super();
 		this.id = id;
+		this.nom = nom;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.stagiaires = stagiaires;
+		this.modules = modules;
+		this.formateur = formateur;
+	}
+
+	public Formation(@NotNull String nom, @NotNull Date dateDebut, @NotNull Date dateFin, Set<Stagiaire> stagiaires,
+			Set<Module> modules, Formateur formateur) {
+		super();
 		this.nom = nom;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
@@ -117,7 +124,5 @@ public class Formation {
 	public void setFormateur(Formateur formateur) {
 		this.formateur = formateur;
 	}
-    
-    
 
 }

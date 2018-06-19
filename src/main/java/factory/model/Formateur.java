@@ -16,36 +16,31 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @DiscriminatorValue("Formateur")
 public class Formateur extends RHumaine {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column(name = "expertise")
+	private Integer expertise;
 
-  @Column(name = "expertise")
-  private Integer expertise;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "lvl_stagiaire")
+	private LvlStagiaire lvlStagiaire;
 
-  @Enumerated(EnumType.STRING)
-  @Column(name = "lvl_stagiaire")
-  private LvlStagiaire lvlStagiaire;
+	@OneToMany(mappedBy = "formateur")
+	@JsonIgnore
+	private Set<Formation> formations = new HashSet<>();
 
-  @OneToMany(mappedBy = "formateur")
-  @JsonIgnore
-  private Set<Formation> formations = new HashSet<>();
+	@ManyToMany
+	@JoinTable(name = "formateur_matieres", joinColumns = @JoinColumn(name = "formateurs_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "matieres_id", referencedColumnName = "id"))
+	private Set<Matiere> matieres = new HashSet<>();
 
-  @ManyToMany
-  @JoinTable(name = "formateur_matieres",
-             joinColumns = @JoinColumn(name="formateurs_id", referencedColumnName="id"),
-             inverseJoinColumns = @JoinColumn(name="matieres_id", referencedColumnName="id"))
-  private Set<Matiere> matieres = new HashSet<>();
+	// jhipster-needle-entity-add-field - JHipster will add fields here, do not
+	// remove
 
-  // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-
-
-
-  public Formateur() {
+	public Formateur() {
 		super();
 	}
 
@@ -59,10 +54,21 @@ public class Formateur extends RHumaine {
 	}
 
 	public Formateur(Long id, @NotNull String nom, @NotNull String prenom, @NotNull String tel, @NotNull String email,
-			Adresse adresse,@NotNull Integer expertise, LvlStagiaire lvlStagiaire, Set<Formation> formations,
+			Adresse adresse, @NotNull Integer expertise, LvlStagiaire lvlStagiaire, Set<Formation> formations,
 			Set<Matiere> matieres) {
 		super(id, nom, prenom, tel, email, adresse);
-		
+
+		this.expertise = expertise;
+		this.lvlStagiaire = lvlStagiaire;
+		this.formations = formations;
+		this.matieres = matieres;
+	}
+
+	public Formateur(@NotNull String nom, @NotNull String prenom, @NotNull String tel, @NotNull String email,
+			Adresse adresse, @NotNull Integer expertise, LvlStagiaire lvlStagiaire, Set<Formation> formations,
+			Set<Matiere> matieres) {
+		super(nom, prenom, tel, email, adresse);
+
 		this.expertise = expertise;
 		this.lvlStagiaire = lvlStagiaire;
 		this.formations = formations;
@@ -104,5 +110,5 @@ public class Formateur extends RHumaine {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 }

@@ -77,6 +77,16 @@ public class RHumaine {
 //	}
 
 
+	public RHumaine(@NotNull String nom, @NotNull String prenom, @NotNull String tel, @NotNull String email,
+			Adresse adresse) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.tel = tel;
+		this.email = email;
+		this.adresse = adresse;
+	}
+
 	public Long getId() {
 		return id;
 	}

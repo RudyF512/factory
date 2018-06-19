@@ -11,17 +11,12 @@ public class Technicien extends RHumaine {
 		super();
 	}
 
-	public Technicien(Long id, String nom,  String prenom,  String tel,  String email,
-			Adresse adresse) {
+	public Technicien(Long id, String nom, String prenom, String tel, String email, Adresse adresse) {
 		super(id, nom, prenom, tel, email, adresse);
 	}
-	
-//	public Technicien( String nom,  String prenom,  String tel,  String email,
-//			Adresse adresse) {
-//		super(nom, prenom, tel, email, adresse);
-//		// TODO Auto-generated constructor stub
-//	}
-	
-	
+
+	public Technicien(String nom, String prenom, String tel, String email, Adresse adresse) {
+		super(nom, prenom, tel, email, adresse);
+	}
 
 }

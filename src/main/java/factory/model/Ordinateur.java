@@ -26,6 +26,16 @@ public class Ordinateur extends RMaterielle {
 		this.anneeAchat = anneeAchat;
 	}
 
+	public Ordinateur(String code, Long cout, Boolean dispo, String brand, String proc, Integer ram,
+			Integer qdd, String anneeAchat) {
+		super(code, cout, dispo);
+		this.brand = brand;
+		this.proc = proc;
+		this.ram = ram;
+		this.qdd = qdd;
+		this.anneeAchat = anneeAchat;
+	}
+
 	@Column(name = "brand")
 	private String brand;
 

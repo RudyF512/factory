@@ -16,4 +16,9 @@ public class Gestionnaire extends RHumaine {
 			@NotNull String email, Adresse adresse) {
 		super(id, nom, prenom, tel, email, adresse);
 	}
+
+	public Gestionnaire(@NotNull String nom, @NotNull String prenom, @NotNull String tel, @NotNull String email,
+			Adresse adresse) {
+		super(nom, prenom, tel, email, adresse);
+	}
 }

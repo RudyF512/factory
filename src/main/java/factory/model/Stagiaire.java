@@ -26,13 +26,19 @@ public class Stagiaire extends RHumaine {
 	public Stagiaire(Long id, @NotNull String nom, @NotNull String prenom, @NotNull String tel, @NotNull String email,
 			Adresse adresse, Ordinateur ordinateur, Formation formation) {
 		super(id, nom, prenom, tel, email, adresse);
-		// TODO Auto-generated constructor stub
 		this.ordinateur = ordinateur;
 		this.formation = formation;
 	}
 
 	public Stagiaire(Ordinateur ordinateur, Formation formation) {
 		super();
+		this.ordinateur = ordinateur;
+		this.formation = formation;
+	}
+
+	public Stagiaire(@NotNull String nom, @NotNull String prenom, @NotNull String tel, @NotNull String email,
+			Adresse adresse, Ordinateur ordinateur, Formation formation) {
+		super(nom, prenom, tel, email, adresse);
 		this.ordinateur = ordinateur;
 		this.formation = formation;
 	}
