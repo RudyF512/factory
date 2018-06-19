@@ -23,8 +23,6 @@ import factory.model.LvlStagiaire;
 import factory.model.Matiere;
 import factory.model.Module;
 import factory.model.Ordinateur;
-import factory.model.Stagiaire;
-import factory.model.Technicien;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
