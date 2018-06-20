@@ -34,8 +34,8 @@ public class Salle extends RMaterielle {
 		this.capacite = capacite;
 	}
 
-	public Salle(Long id, String code, Long cout, Boolean dispo, String nomSalle, Integer capacite) {
-		super(id, code, cout, dispo);
+	public Salle(String code, Long cout, Boolean dispo, String nomSalle, Integer capacite) {
+		super(code, cout, dispo);
 		this.nomSalle = nomSalle;
 		this.capacite = capacite;
 	}

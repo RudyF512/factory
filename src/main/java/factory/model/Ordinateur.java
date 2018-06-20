@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("Ordinateur")
 public class Ordinateur extends RMaterielle {
@@ -12,18 +15,8 @@ public class Ordinateur extends RMaterielle {
 		super();
 	}
 
-	public Ordinateur(Long id, String code, Long cout, Boolean dispo) {
-		super(id, code, cout, dispo);
-	}
-
-	public Ordinateur(Long id, String code, Long cout, Boolean dispo, String brand, String proc, Integer ram,
-			Integer qdd, String anneeAchat) {
-		super(id, code, cout, dispo);
-		this.brand = brand;
-		this.proc = proc;
-		this.ram = ram;
-		this.qdd = qdd;
-		this.anneeAchat = anneeAchat;
+	public Ordinateur(String code, Long cout, Boolean dispo) {
+		super(code, cout, dispo);
 	}
 
 	public Ordinateur(String code, Long cout, Boolean dispo, String brand, String proc, Integer ram,
@@ -37,18 +30,23 @@ public class Ordinateur extends RMaterielle {
 	}
 
 	@Column(name = "brand")
+	@JsonView(Views.ViewRMaterielle.class)
 	private String brand;
 
 	@Column(name = "jhi_proc")
+	@JsonView(Views.ViewRMaterielle.class)
 	private String proc;
 
 	@Column(name = "ram")
+	@JsonView(Views.ViewRMaterielle.class)
 	private Integer ram;
 
 	@Column(name = "qdd")
+	@JsonView(Views.ViewRMaterielle.class)
 	private Integer qdd;
 
 	@Column(name = "annee_achat")
+	@JsonView(Views.ViewRMaterielle.class)
 	private String anneeAchat;
 
 	public String getBrand() {

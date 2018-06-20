@@ -23,8 +23,10 @@ import factory.model.LvlStagiaire;
 import factory.model.Matiere;
 import factory.model.Module;
 import factory.model.Ordinateur;
+import factory.model.Salle;
 import factory.model.Stagiaire;
 import factory.model.Technicien;
+import factory.model.VideoProj;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -55,6 +57,10 @@ public class FactoryBootApplicationTests {
 
 		Ordinateur ordi = new Ordinateur("152", 155L, true, "HP", "i5", 8, 200, "2008");
 		rMaterielleDao.save(ordi);
+		Salle salle = new Salle("Salle12",120L,true,"Saphir",15);
+		rMaterielleDao.save(salle);
+		VideoProj videoProj = new VideoProj("VideoProj17",70L,true,"Model X15", 1080,true,false);
+		rMaterielleDao.save(videoProj);
 
 		Matiere matiere = new Matiere("Math2", 5, "Objectif 1", "bac +5", "Thales2, Pythagore2");
 		matiereDao.save(matiere);

@@ -58,21 +58,20 @@ public class VideoProj extends RMaterielle {
 		this.vga = vga;
 	}
 
-	public VideoProj(Long id, String code, Long cout, Boolean dispo) {
-		super(id, code, cout, dispo);
-	}
-
-	public VideoProj() {
-		super();
-	}
-
-	public VideoProj(Long id, String code, Long cout, Boolean dispo, String brand, Integer resolution, Boolean hdmi,
+	public VideoProj(String code, Long cout, Boolean dispo, String brand, Integer resolution, Boolean hdmi,
 			Boolean vga) {
-		super(id, code, cout, dispo);
+		super(code, cout, dispo);
 		this.brand = brand;
 		this.resolution = resolution;
 		this.hdmi = hdmi;
 		this.vga = vga;
 	}
 
+	public VideoProj() {
+		super();
+	}
+
+	public VideoProj(String code, Long cout, Boolean dispo) {
+		super(code, cout, dispo);
+	}
 }
