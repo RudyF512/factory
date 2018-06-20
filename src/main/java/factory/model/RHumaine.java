@@ -17,12 +17,13 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonView;
-
 
 @Entity
 @Table(name = "rhumaine")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 20)
 public class RHumaine {
 
@@ -70,17 +71,16 @@ public class RHumaine {
 		this.email = email;
 		this.adresse = adresse;
 	}
-	
-//	public RHumaine(String nom, String prenom, String tel, String email,
-//			Adresse adresse) {
-//		super();
-//		this.nom = nom;
-//		this.prenom = prenom;
-//		this.tel = tel;
-//		this.email = email;
-//		this.adresse = adresse;
-//	}
 
+	// public RHumaine(String nom, String prenom, String tel, String email,
+	// Adresse adresse) {
+	// super();
+	// this.nom = nom;
+	// this.prenom = prenom;
+	// this.tel = tel;
+	// this.email = email;
+	// this.adresse = adresse;
+	// }
 
 	public RHumaine(@NotNull String nom, @NotNull String prenom, @NotNull String tel, @NotNull String email,
 			Adresse adresse) {

@@ -96,6 +96,8 @@ public class FactoryBootApplicationTests {
 
 		rHumaineDao.save(stagiaire);
 		rHumaineDao.save(formateur);
+		matiereDao.save(matiere);
+		formationDao.save(formation);
 		moduleDao.save(module);
 	}
 

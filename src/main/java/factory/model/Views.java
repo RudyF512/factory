@@ -5,13 +5,6 @@ public class Views {
 
 	}
 
-	public static class ViewEleve extends ViewCommon {
-
-	}
-
-	public static class ViewEleveWithFormateurs extends ViewEleve {
-
-	}
 
 	public static class ViewFormateur extends ViewCommon {
 
