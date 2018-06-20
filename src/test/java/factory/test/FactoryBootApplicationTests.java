@@ -57,6 +57,8 @@ public class FactoryBootApplicationTests {
 
 		Ordinateur ordi = new Ordinateur("152", 155L, true, "HP", "i5", 8, 200, "2008");
 		rMaterielleDao.save(ordi);
+		Ordinateur ordi1 = new Ordinateur("243", 999L, true, "ASUS", "i7", 16, 1000, "2018");
+		rMaterielleDao.save(ordi1);
 		Salle salle = new Salle("Salle12",120L,true,"Saphir",15);
 		rMaterielleDao.save(salle);
 		VideoProj videoProj = new VideoProj("VideoProj17",70L,true,"Model X15", 1080,true,false);
@@ -81,8 +83,12 @@ public class FactoryBootApplicationTests {
 		rHumaineDao.save(stagiaire);
 		stagiaires.add(stagiaire);
 		
-		Stagiaire stagiaire1 = new Stagiaire("Thiago", "Lucas", "056464661", "testStagiaire@gmail.Com", adresse2, ordi, null);
+		Stagiaire stagiaire1 = new Stagiaire("Thiago", "Lucas", "056464661", "testStagiaire@gmail.Com", adresse2, ordi1, null);
+		rHumaineDao.save(stagiaire1);
+		stagiaires.add(stagiaire1);
 
+		System.out.println(stagiaires);
+		
 		Formateur formateur = new Formateur("Gozlan", "Olivier", "0514594155", "Olivier@gmail.Com", adresse3, 5,
 				LvlStagiaire.Avance, null, matieres);
 		rHumaineDao.save(formateur);
@@ -93,12 +99,16 @@ public class FactoryBootApplicationTests {
 		moduleDao.save(module);
 		modules.add(module);
 
-		Formation formation = new Formation("Energie", date, date, stagiaires, modules, formateur);
-
+		Formation formation = new Formation("Energie", date, date, modules, formateur);
 		formationDao.save(formation);
-
+		
+		formation.getStagiaires().add(stagiaire);
+		formation.getStagiaires().add(stagiaire1);
+		formationDao.save(formation);
 		stagiaire.setFormation(formation);
-//		stagiaire1.setFormation(formation);
+		stagiaire1.setFormation(formation);
+		
+
 		formateur.setFormations(formations);
 		module.setFormateur(formateur);
 		module.setFormations(formations);
@@ -106,7 +116,7 @@ public class FactoryBootApplicationTests {
 		module.setMatiere(matiere);
 
 		rHumaineDao.save(stagiaire);
-//		rHumaineDao.save(stagiaire1);
+		rHumaineDao.save(stagiaire1);
 		rHumaineDao.save(formateur);
 		matiereDao.save(matiere);
 		formationDao.save(formation);

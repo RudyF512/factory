@@ -23,23 +23,23 @@ public class Formation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.ViewFormation.class)
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 
 	@Column(name = "nom", nullable = false)
-	@JsonView(Views.ViewFormation.class)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 
 	@Column(name = "date_debut", nullable = false)
-	@JsonView(Views.ViewFormation.class)
+	@JsonView(Views.ViewCommon.class)
 	private Date dateDebut;
 
 	@Column(name = "date_fin", nullable = false)
-	@JsonView(Views.ViewFormation.class)
+	@JsonView(Views.ViewCommon.class)
 	private Date dateFin;
 
 	@OneToMany(mappedBy = "formation")
-	@JsonView(Views.ViewFormation.class)
+	@JsonView(Views.ViewCommon.class)
 	private Set<Stagiaire> stagiaires = new HashSet<>();
 
 	@ManyToMany
@@ -48,7 +48,7 @@ public class Formation {
 	private Set<Module> modules = new HashSet<>();
 
 	@ManyToOne
-	@JsonView(Views.ViewFormation.class)
+	@JsonView(Views.ViewCommon.class)
 	private Formateur formateur;
 
 	public Formation() {
@@ -56,24 +56,22 @@ public class Formation {
 	}
 
 	public Formation(Long id, @NotNull String nom, @NotNull Date dateDebut, @NotNull Date dateFin,
-			Set<Stagiaire> stagiaires, Set<Module> modules, Formateur formateur) {
+			 Set<Module> modules, Formateur formateur) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		this.stagiaires = stagiaires;
 		this.modules = modules;
 		this.formateur = formateur;
 	}
 
-	public Formation(@NotNull String nom, @NotNull Date dateDebut, @NotNull Date dateFin, Set<Stagiaire> stagiaires,
+	public Formation(@NotNull String nom, @NotNull Date dateDebut, @NotNull Date dateFin,
 			Set<Module> modules, Formateur formateur) {
 		super();
 		this.nom = nom;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		this.stagiaires = stagiaires;
 		this.modules = modules;
 		this.formateur = formateur;
 	}
