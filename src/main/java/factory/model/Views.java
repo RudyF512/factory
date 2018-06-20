@@ -5,15 +5,6 @@ public class Views {
 
 	}
 
-
-	public static class ViewFormateur extends ViewCommon {
-
-	}
-
-	public static class ViewFormateurWithFormations extends ViewCommon {
-
-	}
-
 	public static class ViewMatiere extends ViewCommon {
 
 	}
@@ -25,16 +16,12 @@ public class Views {
 	public static class ViewRHumaine extends ViewCommon {
 
 	}
-	
+
 	public static class ViewRMaterielle extends ViewCommon {
 
 	}
-	
-	public static class ViewSalle extends ViewCommon {
 
-	}
-	
-	public static class ViewModule extends ViewCommon{
-		
+	public static class ViewModule extends ViewCommon {
+
 	}
 }

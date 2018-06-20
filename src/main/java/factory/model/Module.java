@@ -25,36 +25,36 @@ public class Module {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewModule.class)
 	private Long id;
 
 	@NotNull
 	@Column(name = "date_debut", nullable = false)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewModule.class)
 	private Date dateDebut;
 
 	@NotNull
 	@Column(name = "date_fin", nullable = false)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewModule.class)
 	private Date dateFin;
 
 	@OneToOne
 	@JoinColumn(unique = true)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewModule.class)
 	private Salle salle;
 
 	@OneToOne
 	@JoinColumn(unique = true)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewModule.class)
 	private Matiere matiere;
 
 	@OneToOne
 	@JoinColumn(unique = true)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewModule.class)
 	private Formateur formateur;
 
 	@ManyToMany(mappedBy = "modules")
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewModule.class)
 	private Set<Formation> formations = new HashSet<>();
 
 	public Module() {

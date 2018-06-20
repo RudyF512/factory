@@ -23,32 +23,32 @@ public class Formation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewFormation.class)
 	private Long id;
 
 	@Column(name = "nom", nullable = false)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewFormation.class)
 	private String nom;
 
 	@Column(name = "date_debut", nullable = false)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewFormation.class)
 	private Date dateDebut;
 
 	@Column(name = "date_fin", nullable = false)
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewFormation.class)
 	private Date dateFin;
 
 	@OneToMany(mappedBy = "formation")
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewFormation.class)
 	private Set<Stagiaire> stagiaires = new HashSet<>();
 
 	@ManyToMany
 	@JoinTable(name = "formation_modules", joinColumns = @JoinColumn(name = "formations_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "modules_id", referencedColumnName = "id"))
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewFormation.class)
 	private Set<Module> modules = new HashSet<>();
 
 	@ManyToOne
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewFormation.class)
 	private Formateur formateur;
 
 	public Formation() {

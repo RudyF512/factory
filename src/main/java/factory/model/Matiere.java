@@ -3,24 +3,29 @@ package factory.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
+@Table(name = "matiere")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Matiere {
 	@Id
 	@GeneratedValue
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewMatiere.class)
 	private Long id;
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewMatiere.class)
 	private String nom;
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewMatiere.class)
 	private Integer duree;
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewMatiere.class)
 	private String objectif;
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewMatiere.class)
 	private String prerequis;
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewMatiere.class)
 	private String contenue;
 
 	public Matiere() {

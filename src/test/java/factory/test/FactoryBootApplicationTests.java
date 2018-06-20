@@ -99,6 +99,8 @@ public class FactoryBootApplicationTests {
 		formateur.setFormations(formations);
 		module.setFormateur(formateur);
 		module.setFormations(formations);
+		module.setSalle(salle);
+		module.setMatiere(matiere);
 
 		rHumaineDao.save(stagiaire);
 		rHumaineDao.save(formateur);
