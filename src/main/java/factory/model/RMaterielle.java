@@ -23,19 +23,19 @@ public class RMaterielle {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.ViewRMaterielle.class)
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 
 	@Column(name = "code", nullable = false)
-	@JsonView(Views.ViewRMaterielle.class)
+	@JsonView(Views.ViewCommon.class)
 	private String code;
 
 	@Column(name = "cout", nullable = false)
-	@JsonView(Views.ViewRMaterielle.class)
+	@JsonView(Views.ViewCommon.class)
 	private Long cout;
 
 	@Column(name = "dispo", nullable = false)
-	@JsonView(Views.ViewRMaterielle.class)
+	@JsonView(Views.ViewCommon.class)
 	private Boolean dispo;
 
 	public Long getId() {

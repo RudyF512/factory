@@ -24,12 +24,12 @@ public class Formateur extends RHumaine {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "expertise")
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewCommon.class)
 	private Integer expertise;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "lvl_stagiaire")
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewCommon.class)
 	private LvlStagiaire lvlStagiaire;
 
 	@OneToMany(mappedBy = "formateur")
@@ -38,7 +38,7 @@ public class Formateur extends RHumaine {
 
 	@ManyToMany
 	@JoinTable(name = "formateur_matieres", joinColumns = @JoinColumn(name = "formateurs_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "matieres_id", referencedColumnName = "id"))
-	@JsonView(Views.ViewRHumaine.class)
+	@JsonView(Views.ViewCommon.class)
 	private Set<Matiere> matieres = new HashSet<>();
 
 	// jhipster-needle-entity-add-field - JHipster will add fields here, do not

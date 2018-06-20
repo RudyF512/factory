@@ -15,17 +15,17 @@ import com.fasterxml.jackson.annotation.JsonView;
 public class Matiere {
 	@Id
 	@GeneratedValue
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewCommon.class)
 	private Integer duree;
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewCommon.class)
 	private String objectif;
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewCommon.class)
 	private String prerequis;
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewCommon.class)
 	private String contenue;
 
 	public Matiere() {

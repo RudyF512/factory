@@ -117,6 +117,10 @@ public class Formation {
 	public void setStagiaires(Set<Stagiaire> stagiaires) {
 		this.stagiaires = stagiaires;
 	}
+	
+	public void addStagiaires(Stagiaire stagiaires) {
+		this.stagiaires.add(stagiaires);
+	}
 
 	public Set<Module> getModules() {
 		return modules;

@@ -25,32 +25,32 @@ public class Module {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.ViewModule.class)
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 
 	@NotNull
 	@Column(name = "date_debut", nullable = false)
-	@JsonView(Views.ViewModule.class)
+	@JsonView(Views.ViewCommon.class)
 	private Date dateDebut;
 
 	@NotNull
 	@Column(name = "date_fin", nullable = false)
-	@JsonView(Views.ViewModule.class)
+	@JsonView(Views.ViewCommon.class)
 	private Date dateFin;
 
 	@OneToOne
 	@JoinColumn(unique = true)
-	@JsonView(Views.ViewModule.class)
+	@JsonView(Views.ViewCommon.class)
 	private Salle salle;
 
 	@OneToOne
 	@JoinColumn(unique = true)
-	@JsonView(Views.ViewModule.class)
+	@JsonView(Views.ViewCommon.class)
 	private Matiere matiere;
 
 	@OneToOne
 	@JoinColumn(unique = true)
-	@JsonView(Views.ViewModule.class)
+	@JsonView(Views.ViewCommon.class)
 	private Formateur formateur;
 
 	@ManyToMany(mappedBy = "modules")

@@ -80,6 +80,8 @@ public class FactoryBootApplicationTests {
 		Stagiaire stagiaire = new Stagiaire("Jean", "Patrick", "0245978510", "vikvik@gmail.Com", adresse2, ordi, null);
 		rHumaineDao.save(stagiaire);
 		stagiaires.add(stagiaire);
+		
+		Stagiaire stagiaire1 = new Stagiaire("Thiago", "Lucas", "056464661", "testStagiaire@gmail.Com", adresse2, ordi, null);
 
 		Formateur formateur = new Formateur("Gozlan", "Olivier", "0514594155", "Olivier@gmail.Com", adresse3, 5,
 				LvlStagiaire.Avance, null, matieres);
@@ -96,6 +98,7 @@ public class FactoryBootApplicationTests {
 		formationDao.save(formation);
 
 		stagiaire.setFormation(formation);
+//		stagiaire1.setFormation(formation);
 		formateur.setFormations(formations);
 		module.setFormateur(formateur);
 		module.setFormations(formations);
@@ -103,6 +106,7 @@ public class FactoryBootApplicationTests {
 		module.setMatiere(matiere);
 
 		rHumaineDao.save(stagiaire);
+//		rHumaineDao.save(stagiaire1);
 		rHumaineDao.save(formateur);
 		matiereDao.save(matiere);
 		formationDao.save(formation);
